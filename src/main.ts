@@ -1,8 +1,13 @@
-import { createApp } from "vue";
-import App from "./App.vue";
-import "./style.css";
-import router from "./router";
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+import pinia from './store'
+import './style.css'
 
-const app = createApp(App);
-app.mount("#app");
-app.use(router);
+const app = createApp(App)
+
+app.use(router)
+
+app.use(pinia)
+
+app.mount('#app')

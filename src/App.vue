@@ -1,18 +1,28 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import useCounter from './store/modules/counter'
 
-const count = ref(0)
+const counterStore = useCounter()
+
 </script>
 
 <template>
-  <div class="w-full h-full flex flex-col justify-center items-center">
+  <div class="w-full h-full flex justify-center items-center">
     <a-button
       type="primary"
-      @click="count++"
+      status="danger"
+      @click="counterStore.decrement()"
     >
-    count is {{ count }}
+      decrement
     </a-button>
-    <h1 class="text-3xl font-bold underline mt-5">hello world</h1>
+    <h1 class="text-3xl font-bold mx-5">count is {{ counterStore.count }}</h1>
+    <h2 class="text-3xl font-bold mx-5">double is {{ counterStore.double }}</h2>
+    <a-button
+      type="primary"
+      status="success"
+      @click="counterStore.increment()"
+    >
+      decrement
+    </a-button>
   </div>
 </template>
 
